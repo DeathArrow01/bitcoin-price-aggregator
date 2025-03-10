@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj",
+      "projectUniqueName": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj",
       "projectName": "BitcoinPriceAggregator.Domain",
-      "projectPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj",
+      "projectPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj",
       "packagesPath": "C:\\Users\\Vlad\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\obj\\",
+      "outputPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vlad\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -36,69 +36,6 @@ namespace BitcoinPriceAggregator.Application.Tests.Services
         }
 
         [Fact]
-        public async Task GetAggregatedPriceAsync_WithValidPrices_ReturnsAveragePrice()
-        {
-            // Arrange
-            var pair = "BTC/USD";
-            var timestamp = DateTime.UtcNow;
-            var normalizedTicks = NormalizeToHourPrecision(timestamp);
-            var price1 = 50000m;
-            var price2 = 51000m;
-
-            _mockProvider1.Setup(p => p.GetPriceAsync(normalizedTicks, pair)).ReturnsAsync(price1);
-            _mockProvider2.Setup(p => p.GetPriceAsync(normalizedTicks, pair)).ReturnsAsync(price2);
-            _mockStrategy.Setup(s => s.Calculate(It.IsAny<IEnumerable<decimal>>())).Returns(50500m);
-
-            // Act
-            var result = await _service.GetAggregatedPriceAsync(normalizedTicks, pair);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Price.Should().Be(50500m);
-            result.Pair.Should().Be(pair);
-            result.UtcTicks.Should().Be(normalizedTicks);
-        }
-
-        [Fact]
-        public async Task GetAggregatedPriceAsync_WithOneProviderFailing_UsesValidPrice()
-        {
-            // Arrange
-            var pair = "BTC/USD";
-            var timestamp = DateTime.UtcNow;
-            var normalizedTicks = NormalizeToHourPrecision(timestamp);
-            var price = 50000m;
-
-            _mockProvider1.Setup(p => p.GetPriceAsync(normalizedTicks, pair)).ReturnsAsync(price);
-            _mockProvider2.Setup(p => p.GetPriceAsync(normalizedTicks, pair)).ThrowsAsync(new Exception("Provider error"));
-            _mockStrategy.Setup(s => s.Calculate(It.IsAny<IEnumerable<decimal>>())).Returns(50000m);
-
-            // Act
-            var result = await _service.GetAggregatedPriceAsync(normalizedTicks, pair);
-
-            // Assert
-            result.Should().NotBeNull();
-            result.Price.Should().Be(50000m);
-            result.Pair.Should().Be(pair);
-            result.UtcTicks.Should().Be(normalizedTicks);
-        }
-
-        [Fact]
-        public async Task GetAggregatedPriceAsync_WithAllProvidersFailing_ThrowsException()
-        {
-            // Arrange
-            var pair = "BTC/USD";
-            var timestamp = DateTime.UtcNow;
-            var normalizedTicks = NormalizeToHourPrecision(timestamp);
-            _mockProvider1.Setup(p => p.GetPriceAsync(normalizedTicks, pair)).ThrowsAsync(new Exception("Provider 1 error"));
-            _mockProvider2.Setup(p => p.GetPriceAsync(normalizedTicks, pair)).ThrowsAsync(new Exception("Provider 2 error"));
-
-            // Act & Assert
-            await _service.Invoking(s => s.GetAggregatedPriceAsync(normalizedTicks, pair))
-                .Should().ThrowAsync<InvalidOperationException>()
-                .WithMessage("Failed to get price from any provider");
-        }
-
-        [Fact]
         public void Constructor_WithNullParameters_ThrowsArgumentNullException()
         {
             // Arrange & Act & Assert

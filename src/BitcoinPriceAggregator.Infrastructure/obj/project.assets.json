@@ -1707,11 +1707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj",
       "projectName": "BitcoinPriceAggregator.Infrastructure",
-      "projectPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj",
+      "projectPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Vlad\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Infrastructure\\obj\\",
+      "outputPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vlad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1728,8 +1728,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj": {
-              "projectPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj"
+            "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj": {
+              "projectPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj"
             }
           }
         }

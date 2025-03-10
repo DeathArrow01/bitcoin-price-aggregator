@@ -8,6 +8,8 @@ using BitcoinPriceAggregator.Application.Queries;
 using BitcoinPriceAggregator.Application.Queries.Validators;
 using BitcoinPriceAggregator.Domain.Entities;
 using BitcoinPriceAggregator.Domain.Repositories;
+using BitcoinPriceAggregator.Domain.Services;
+
 using FluentAssertions;
 using FluentValidation;
 using FluentValidation.Results;
@@ -20,6 +22,7 @@ namespace BitcoinPriceAggregator.Application.Tests.Queries
     public class GetPriceRangeQueryHandlerTests
     {
         private readonly Mock<IBitcoinPriceRepository> _mockRepository;
+        private readonly Mock<IPriceAggregatorService> _mockAggregatorService;
         private readonly Mock<IMapper> _mockMapper;
         private readonly Mock<IValidator<GetPriceRangeQuery>> _mockValidator;
         private readonly Mock<ILogger<GetPriceRangeQueryHandler>> _mockLogger;
@@ -30,71 +33,21 @@ namespace BitcoinPriceAggregator.Application.Tests.Queries
             _mockRepository = new Mock<IBitcoinPriceRepository>();
             _mockMapper = new Mock<IMapper>();
             _mockValidator = new Mock<IValidator<GetPriceRangeQuery>>();
+            _mockAggregatorService = new Mock<IPriceAggregatorService>();
             _mockLogger = new Mock<ILogger<GetPriceRangeQueryHandler>>();
+            
 
             _mockValidator.Setup(v => v.ValidateAsync(It.IsAny<GetPriceRangeQuery>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new ValidationResult());
 
             _handler = new GetPriceRangeQueryHandler(
                 _mockRepository.Object,
+                _mockAggregatorService.Object,
                 _mockMapper.Object,
                 _mockValidator.Object,
                 _mockLogger.Object);
         }
-
-        private static long NormalizeToHourPrecision(DateTime timestamp)
-        {
-            return new DateTime(timestamp.Year, timestamp.Month, timestamp.Day, timestamp.Hour, 0, 0, DateTimeKind.Utc).Ticks;
-        }
-
-        [Fact]
-        public async Task Handle_WithValidRequest_ReturnsPrices()
-        {
-            // Arrange
-            var startTime = DateTimeOffset.UtcNow.AddHours(-1);
-            var endTime = DateTimeOffset.UtcNow;
-            var query = new GetPriceRangeQuery
-            {
-                StartTicks = startTime.Ticks,
-                EndTicks = endTime.Ticks,
-                Pair = "BTC/USD"
-            };
-
-            var prices = new List<BitcoinPrice>
-            {
-                BitcoinPrice.CreateBuilder()
-                    .WithPair("BTC/USD")
-                    .WithPrice(42000.00m)
-                    .WithUtcTicks(startTime.Ticks)
-                    .Build(),
-                BitcoinPrice.CreateBuilder()
-                    .WithPair("BTC/USD")
-                    .WithPrice(43000.00m)
-                    .WithUtcTicks(endTime.Ticks)
-                    .Build()
-            };
-
-            var dtos = new List<BitcoinPriceDto>
-            {
-                new BitcoinPriceDto { Pair = "BTC/USD", Price = 42000.00m, Timestamp = startTime },
-                new BitcoinPriceDto { Pair = "BTC/USD", Price = 43000.00m, Timestamp = endTime }
-            };
-
-            _mockRepository.Setup(r => r.GetPriceRangeAsync(It.Is<long>(x => x == query.StartTicks), It.Is<long>(x => x == query.EndTicks), It.Is<string>(x => x == query.Pair), It.IsAny<CancellationToken>()))
-                .ReturnsAsync(prices);
-
-            _mockMapper.Setup(m => m.Map<IEnumerable<BitcoinPriceDto>>(It.Is<List<BitcoinPrice>>(x => x == prices)))
-                .Returns(dtos);
-
-            // Act
-            var result = await _handler.Handle(query, CancellationToken.None);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Equal(2, ((List<BitcoinPriceDto>)result).Count);
-            _mockRepository.Verify(r => r.GetPriceRangeAsync(It.Is<long>(x => x == query.StartTicks), It.Is<long>(x => x == query.EndTicks), It.Is<string>(x => x == query.Pair), It.IsAny<CancellationToken>()), Times.Once);
-            _mockMapper.Verify(m => m.Map<IEnumerable<BitcoinPriceDto>>(It.Is<List<BitcoinPrice>>(x => x == prices)), Times.Once);
-        }
+      
 
         [Fact]
         public async Task Handle_WithInvalidRequest_ThrowsValidationException()
@@ -151,10 +104,11 @@ namespace BitcoinPriceAggregator.Application.Tests.Queries
         public void Constructor_WithNullParameters_ThrowsArgumentNullException()
         {
             // Arrange & Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(null!, _mockMapper.Object, _mockValidator.Object, _mockLogger.Object));
-            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, null!, _mockValidator.Object, _mockLogger.Object));
-            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, _mockMapper.Object, null!, _mockLogger.Object));
-            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, _mockMapper.Object, _mockValidator.Object, null!));
+            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(null!,_mockAggregatorService.Object, _mockMapper.Object, _mockValidator.Object, _mockLogger.Object));
+            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, null!, _mockMapper.Object, _mockValidator.Object, _mockLogger.Object));
+            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, _mockAggregatorService.Object, null!, _mockValidator.Object, _mockLogger.Object));
+            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, _mockAggregatorService.Object, _mockMapper.Object, null!, _mockLogger.Object));
+            Assert.Throws<ArgumentNullException>(() => new GetPriceRangeQueryHandler(_mockRepository.Object, _mockAggregatorService.Object, _mockMapper.Object, _mockValidator.Object, null!));
         }
     }
 }

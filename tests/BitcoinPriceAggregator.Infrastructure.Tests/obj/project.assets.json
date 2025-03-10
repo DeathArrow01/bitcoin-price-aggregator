@@ -2952,11 +2952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Work\\Pro\\New\\tests\\BitcoinPriceAggregator.Infrastructure.Tests\\BitcoinPriceAggregator.Infrastructure.Tests.csproj",
+      "projectUniqueName": "C:\\Work\\Pro\\bitcoin-price-aggregator\\tests\\BitcoinPriceAggregator.Infrastructure.Tests\\BitcoinPriceAggregator.Infrastructure.Tests.csproj",
       "projectName": "BitcoinPriceAggregator.Infrastructure.Tests",
-      "projectPath": "C:\\Work\\Pro\\New\\tests\\BitcoinPriceAggregator.Infrastructure.Tests\\BitcoinPriceAggregator.Infrastructure.Tests.csproj",
+      "projectPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\tests\\BitcoinPriceAggregator.Infrastructure.Tests\\BitcoinPriceAggregator.Infrastructure.Tests.csproj",
       "packagesPath": "C:\\Users\\Vlad\\.nuget\\packages\\",
-      "outputPath": "C:\\Work\\Pro\\New\\tests\\BitcoinPriceAggregator.Infrastructure.Tests\\obj\\",
+      "outputPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\tests\\BitcoinPriceAggregator.Infrastructure.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vlad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2973,11 +2973,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj": {
-              "projectPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj"
+            "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj": {
+              "projectPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Domain\\BitcoinPriceAggregator.Domain.csproj"
             },
-            "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj": {
-              "projectPath": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj"
+            "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj": {
+              "projectPath": "C:\\Work\\Pro\\bitcoin-price-aggregator\\src\\BitcoinPriceAggregator.Infrastructure\\BitcoinPriceAggregator.Infrastructure.csproj"
             }
           }
         }
