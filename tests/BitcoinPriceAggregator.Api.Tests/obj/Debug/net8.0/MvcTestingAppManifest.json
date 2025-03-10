@@ -1,0 +1,6 @@
+{
+  "BitcoinPriceAggregator.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Api",
+  "BitcoinPriceAggregator.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Application",
+  "BitcoinPriceAggregator.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Domain",
+  "BitcoinPriceAggregator.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Work\\Pro\\New\\src\\BitcoinPriceAggregator.Infrastructure"
+}

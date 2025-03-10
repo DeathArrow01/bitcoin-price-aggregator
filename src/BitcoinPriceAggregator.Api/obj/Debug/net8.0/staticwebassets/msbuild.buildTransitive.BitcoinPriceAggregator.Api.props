@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\BitcoinPriceAggregator.Api.props" />
+</Project>

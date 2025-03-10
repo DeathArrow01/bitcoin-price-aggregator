@@ -1,0 +1,110 @@
+{
+    "info": {
+        "name": "Bitcoin Price Aggregator API",
+        "description": "Collection for testing the Bitcoin Price Aggregator API endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Price by Timestamp",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/api/v1/price/{{timestamp}}",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "v1", "price", "{{timestamp}}"],
+                    "query": [
+                        {
+                            "key": "pair",
+                            "value": "BTC/USD",
+                            "description": "Trading pair"
+                        }
+                    ]
+                },
+                "description": "Retrieves the Bitcoin price for a specific timestamp"
+            }
+        },
+        {
+            "name": "Get Price Range",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/api/v1/price?startTime={{start_time}}&endTime={{end_time}}",
+                    "host": ["{{base_url}}"],
+                    "path": ["api", "v1", "price"],
+                    "query": [
+                        {
+                            "key": "startTime",
+                            "value": "{{start_time}}",
+                            "description": "Start timestamp (UTC)"
+                        },
+                        {
+                            "key": "endTime",
+                            "value": "{{end_time}}",
+                            "description": "End timestamp (UTC)"
+                        },
+                        {
+                            "key": "pair",
+                            "value": "BTC/USD",
+                            "description": "Trading pair"
+                        }
+                    ]
+                },
+                "description": "Retrieves Bitcoin prices within a specified time range"
+            }
+        },
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{base_url}}/healthcheck",
+                    "host": ["{{base_url}}"],
+                    "path": ["healthcheck"]
+                },
+                "description": "Checks the health status of the API"
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "https://localhost:5001",
+            "type": "string"
+        },
+        {
+            "key": "jwt_token",
+            "value": "your_jwt_token_here",
+            "type": "string"
+        },
+        {
+            "key": "timestamp",
+            "value": "2024-03-13T12:00:00Z",
+            "type": "string"
+        },
+        {
+            "key": "start_time",
+            "value": "2024-03-13T00:00:00Z",
+            "type": "string"
+        },
+        {
+            "key": "end_time",
+            "value": "2024-03-13T23:59:59Z",
+            "type": "string"
+        }
+    ]
+} 

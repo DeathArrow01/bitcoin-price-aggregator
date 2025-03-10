@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "oS9fiTkq7bqD95EimC47M2ui5EoB/ejJKI8KWbw+6Ow=",
+  "Source": "BitcoinPriceAggregator.Api",
+  "BasePath": "_content/BitcoinPriceAggregator.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

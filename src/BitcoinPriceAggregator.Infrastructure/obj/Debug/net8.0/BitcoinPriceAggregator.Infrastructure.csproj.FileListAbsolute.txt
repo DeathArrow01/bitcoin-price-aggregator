@@ -1,0 +1,15 @@
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\bin\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.deps.json
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\bin\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.dll
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\bin\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.pdb
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\bin\Debug\net8.0\BitcoinPriceAggregator.Domain.dll
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\bin\Debug\net8.0\BitcoinPriceAggregator.Domain.pdb
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.csproj.AssemblyReference.cache
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.AssemblyInfoInputs.cache
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.AssemblyInfo.cs
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinP.7520436F.Up2Date
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.dll
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\refint\BitcoinPriceAggregator.Infrastructure.dll
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\BitcoinPriceAggregator.Infrastructure.pdb
+C:\Work\Pro\New\src\BitcoinPriceAggregator.Infrastructure\obj\Debug\net8.0\ref\BitcoinPriceAggregator.Infrastructure.dll
